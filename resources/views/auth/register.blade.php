@@ -90,13 +90,13 @@
                         </div>
 
 
-                        @if(config('settings.reCaptchStatus'))
+                        <!-- @if(config('settings.reCaptchStatus'))
                             <div class="form-group">
                                 <div class="col-sm-6 col-sm-offset-4">
                                     <div class="g-recaptcha" data-sitekey="{{ config('settings.reCaptchSite') }}"></div>
                                 </div>
                             </div>
-                        @endif
+                        @endif -->
 
                         <div class="form-group row mb-4">
                             <div class="col-md-6 offset-md-4">

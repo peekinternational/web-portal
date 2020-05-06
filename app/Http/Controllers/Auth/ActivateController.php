@@ -114,16 +114,21 @@ class ActivateController extends Controller
     {
         $user = Auth::user();
         $lastActivation = Activation::where('user_id', $user->id)->get()->last();
+        // dd($lastActivation);
         $currentRoute = Route::currentRouteName();
 
         $rCheck = $this->activeRedirect($user, $currentRoute);
         if ($rCheck) {
             return $rCheck;
         }
-
+        // dd($rCheck);
+        $create_date='';
+        if ($lastActivation !=null) {
+          $create_date =$lastActivation->created_at->format('m/d/Y');
+        }
         $data = [
             'email' => $user->email,
-            'date'  => $lastActivation->created_at->format('m/d/Y'),
+            'date'  => $create_date,
         ];
 
         return view($this->getActivationView())->with($data);
@@ -256,7 +261,7 @@ class ActivateController extends Controller
                 return view('auth.exceeded')->with($data);
             }
 
-            $sendEmail = $this->initiateEmailActivation($user);
+            // $sendEmail = $this->initiateEmailActivation($user);
 
             Log::info('Activation resent to registered user. '.$currentRoute.'. ', [$user]);
 
