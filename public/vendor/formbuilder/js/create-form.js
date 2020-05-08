@@ -25,6 +25,25 @@ jQuery(function() {
     var fbEditor = $(document.getElementById('fb-editor'))
 
     var formBuilder
+    var fields = [{
+    label: 'Image',
+    attrs: {
+      type: 'starRating'
+    },
+    icon: '🌟'
+  }];
+  var templates = {
+    starRating: function(fieldData) {
+      return {
+        field: '<span id="' + fieldData.name + '">',
+        onRender: function() {
+          $(document.getElementById(fieldData.name)).rateYo({
+            rating: 3.6
+          });
+        }
+      };
+    }
+  };
     var fbOptions = {
       // i18n: {
       //   locale: 'ar-SA',
@@ -78,9 +97,12 @@ jQuery(function() {
             // var formData = formBuilder.formData
             // console.log(formData)
         },
+
+
     }
 
-    formBuilder = fbEditor.formBuilder(fbOptions)
+
+    formBuilder = fbEditor.formBuilder({fbOptions,templates,fields})
     // formBuilder = fbEditor.formBuilder()
 
     var fbClearBtn = $('.fb-clear-btn')
@@ -98,15 +120,27 @@ jQuery(function() {
             formBuilder.actions.clearFields()
         })
     });
-    document.getElementById('showData').addEventListener('click', function() {
-      formBuilder.actions.showData()
-    });
+    // document.getElementById('showData').addEventListener('click', function() {
+    //   formBuilder.actions.showData()
+    // });
     fbShowDataBtn.click(function(e) {
         e.preventDefault()
         formBuilder.actions.showData()
     });
     fblangBtn.click(function() {
     var lang = this.id;
+    // alert(lang);
+    if (lang == 'ar-SA') {
+      $(".form-wrap,.form-builder, .frmb, .prev-holder, select, .form-wrap, .form-builder, .frmb, .prev-holder, input[type='text'], .form-wrap, .form-builder, .frmb, .prev-holder, textarea, .form-wrap, .form-builder, .frmb, .prev-holder, input[type='number']").css("direction","rtl")
+      // $(this).closest('.form-builder').children('.field-label').css("float","right")
+      // $(".form-wrap.form-builder .frmb .field-label, .form-wrap.form-builder .frmb .legend").css("float","right")
+      // $(".form-wrap.form-builder .frmb .field-actions").css("left",0)
+      // $("form-wrap, .field-label, .legend").css("float","right")
+
+    }else {
+      $(".form-wrap,.form-builder, .frmb, .prev-holder, select, .form-wrap, .form-builder, .frmb, .prev-holder, input[type='text'], .form-wrap, .form-builder, .frmb, .prev-holder, textarea, .form-wrap, .form-builder, .frmb, .prev-holder, input[type='number']").css("direction","ltr")
+
+    }
     formBuilder.actions.setLang(lang)
   });
 

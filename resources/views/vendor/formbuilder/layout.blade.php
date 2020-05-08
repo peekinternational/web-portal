@@ -8,7 +8,10 @@
 	</script>
 	<script src="{{ asset('vendor/formbuilder/js/jquery-ui.min.js') }}" defer></script>
 	<script src="{{ asset('vendor/formbuilder/js/sweetalert.min.js') }}" defer></script>
-	<script src="{{ asset('vendor/formbuilder/js/jquery-formbuilder/form-builder.min.js') }}" defer></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <!-- <script src="https://formbuilder.online/assets/js/form-builder.min.js"></script> -->
+	<script src="{{ asset('vendor/formbuilder/js/jquery-formbuilder/form-builder-new.min.js') }}" defer></script>
 	<script src="{{ asset('vendor/formbuilder/js/jquery-formbuilder/form-render.min.js') }}" defer></script>
 	<script src="{{ asset('vendor/formbuilder/js/parsleyjs/parsley.min.js') }}" defer></script>
 	<script src="{{ asset('vendor/formbuilder/js/clipboard/clipboard.min.js') }}?b=ck24" defer></script>

@@ -77,9 +77,9 @@
                                     <i class="fa fa-info-circle"></i>
                                     Click on or drag and drop components onto the main panel to build your form content.
                                 </div>
-                                <div class="setDataWrap">
+                                <!-- <div class="setDataWrap">
                                   <button id="showData" type="button">Show Data</button>
-                                </div>
+                                </div> -->
                                 <ul class="language-selector">
                                   <li id="en-US">English</li>
                                   <li id="pt-BR">Português</li>
