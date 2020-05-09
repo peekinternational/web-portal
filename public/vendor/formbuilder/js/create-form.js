@@ -25,25 +25,6 @@ jQuery(function() {
     var fbEditor = $(document.getElementById('fb-editor'))
 
     var formBuilder
-    var fields = [{
-    label: 'Image',
-    attrs: {
-      type: 'starRating'
-    },
-    icon: '🌟'
-  }];
-  var templates = {
-    starRating: function(fieldData) {
-      return {
-        field: '<span id="' + fieldData.name + '">',
-        onRender: function() {
-          $(document.getElementById(fieldData.name)).rateYo({
-            rating: 3.6
-          });
-        }
-      };
-    }
-  };
     var fbOptions = {
       // i18n: {
       //   locale: 'ar-SA',
@@ -97,12 +78,10 @@ jQuery(function() {
             // var formData = formBuilder.formData
             // console.log(formData)
         },
-
-
     }
 
 
-    formBuilder = fbEditor.formBuilder({fbOptions,templates,fields})
+    formBuilder = fbEditor.formBuilder(fbOptions)
     // formBuilder = fbEditor.formBuilder()
 
     var fbClearBtn = $('.fb-clear-btn')
