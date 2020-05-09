@@ -35,16 +35,6 @@
     <script type="text/javascript">
         window._form_builder_content = {!! json_encode($form->form_builder_json) !!}
     </script>
-    <script>
-    $(document).ready(function () {
-      var type ="{{$type}}";
-      if (type !="") {
-        alert(type);
-        // $("label[for='event_Please specify']").css('display', 'block');
-        $(".rendered-form .form-control").css("direction","rtl");
-      }
 
-    })
-    </script>
     <script src="{{ asset('vendor/formbuilder/js/render-form.js') }}{{ jazmy\FormBuilder\Helper::bustCache() }}" defer></script>
 @endpush
